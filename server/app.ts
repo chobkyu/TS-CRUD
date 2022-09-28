@@ -1,8 +1,12 @@
 import express,{Express,Request,Response} from 'express';
 
 const app:Express = express();
+const dotenv = require("dotenv");
+dotenv.config();
 
 const home = require("./src/routes/home");
+
+
 
 app.use(express.static(__dirname+'/src/public'));
 app.use(express.json());
