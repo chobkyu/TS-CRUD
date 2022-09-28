@@ -4,9 +4,9 @@
   "description": "",
   "main": "app.ts",
   "scripts": {
-    "server" : "cd server && nodemon app",
+    "server" : "cd server && nodemon ./bin/www.ts ",
     "client": " cd client && npm start",
-    "start": "concurrently --kill-others-on-fail \"cd server && nodemon app\" \"cd client && npm start\"",
+    "start": "concurrently --kill-others-on-fail \"cd server && nodemon ./bin/www.ts\" \"cd client && npm start\"",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",

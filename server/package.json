@@ -126,7 +126,7 @@
     "yn": "^3.1.1"
   },
   "scripts": {
-    "start" :"nodemon app",
+    "start" :"nodemon ./bin/www.ts",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
