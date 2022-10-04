@@ -1,4 +1,4 @@
-import React,{useState} from 'react';
+import React,{useState,useEffect} from 'react';
 import './css/Login.css';
 import {  Link, useNavigate } from "react-router-dom";
 import axios from 'axios';
@@ -9,6 +9,17 @@ interface login{
 }
 
 function Login(){
+    const navigate=useNavigate();
+
+    useEffect(()=>{
+        const id = window.sessionStorage.getItem('id');
+        if(id){
+            alert('이미 로그인 되어 있습니다');
+            navigate('/');
+        }
+    },[]);
+    
+
     const [login, setLogin] = useState<login>({
         userId:"",
         userPw:"",
@@ -23,8 +34,7 @@ function Login(){
         console.log(login);
     }
 
-    const navigate=useNavigate();
-
+    
     const onclick = async() => {
         if(!login.userId||!login.userPw) return alert("아이디와 비번 둘 다 입력해주세요");
 
@@ -36,6 +46,7 @@ function Login(){
 
         if(response.data.success){
             alert('로그인 되었습니다');
+            window.sessionStorage.setItem('id',login.userId);
             navigate('/');
         }else{
             return alert(response.data.msg);
