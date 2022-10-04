@@ -1,5 +1,5 @@
 import React,{useState} from 'react';
-import './Login.css';
+import './css/Login.css';
 import axios from 'axios';
 export interface regist{
     id:string,
@@ -26,7 +26,7 @@ function Register(){
         
     }
     const onclick = () =>{
-        console.log(newUser.id);
+        
     }
     return (
         <div>

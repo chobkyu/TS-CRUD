@@ -1,19 +1,23 @@
 import React from 'react';
 import logo from './logo.svg';
-import './App.css';
+import './css/App.css';
 import { BrowserRouter, Route ,Routes} from 'react-router-dom';
 import Header from './Header';
 import Login from './Login';
 import Register from './Register';
+import Write from './Write';
+import Board from './Board';
 
 function App() {
   return (
-    <div className="App">
+    <div>
       <BrowserRouter>
         <Header/>
         <Routes>
+          <Route path='/' element={<Board></Board>}/>
           <Route path="/login" element={<Login></Login>}/>
           <Route path="/register" element={<Register></Register>}/>
+          <Route path="/write" element={<Write/>}/>
         </Routes>
         
       </BrowserRouter>
