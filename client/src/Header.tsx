@@ -5,7 +5,7 @@ function Header(){
         <div className="container">
         <header>
           <nav>
-            <div className="icon">TODO List</div>
+            <div className="icon">TS-CRUD</div>
             <div className="gnb">
               <Link to="/">메인페이지</Link>
               <Link to="/write">글쓰기</Link>

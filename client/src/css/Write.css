@@ -19,3 +19,47 @@
     font-size:10;
     border-radius: 10px;
 }
+
+.input-Board{
+    margin-left: 15%;
+    /*text-align: center;*/
+}
+
+.bar2{ /*****작성 제목 타이틀*****/
+    width:100%;
+    height: 30px;
+    font-size: 10px;
+    margin-top:3%;
+}
+
+.search-input{ /*******작성제목을 유져가 기입하는곳*******/
+    height: 32px;
+    text-align: left;
+    width:40%;
+    border:1px solid black;
+   }
+
+   /***********content_table**************/
+.content_table{ /**table 로  자식으로 .content가 있음*/
+    margin-bottom:10px;
+    width:100%;
+}
+
+td textarea.content{ /*작성내용 작성 하는 공간*/
+    width:80%;
+    height:300px;
+    white-space:pre-line;
+    border:1px solid black;
+}
+
+button.d-btn{  /*게시글 등록 완료 버튼*/
+	position:absolute;
+    background: black;
+    color:#fff;
+    width:80px;
+    height: 40px;
+    top:90%;
+    left:45%;
+    border:0px;
+    border-radius:10%;
+}
