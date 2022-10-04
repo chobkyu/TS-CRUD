@@ -2,9 +2,16 @@
 
 const UserDao = require("./UserDao");
 
+export interface userInfo{
+    userId:string,
+    userPw:string,
+    userName:string,
+    userNickname:string,
+}
+
 class UserService{
     body: any;  //나중에 타입 수정 예정
-    constructor(body:any){
+    constructor(body:userInfo){
         this.body = body;
     }
 
@@ -22,6 +29,16 @@ class UserService{
         }catch(err){
             return {success:false,msg:err};
         }
+    }
+
+    async register(){
+        const client = this.body;
+        try{
+            const response = await UserDao.insertUserInfo(client);
+            return response;
+        }catch (err) {
+            return {success : false, msg : err};
+        } 
     }
 }
 
