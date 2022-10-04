@@ -1,6 +1,8 @@
 import React,{useState} from 'react';
 import './css/Login.css';
 import axios from 'axios';
+import {useNavigate} from 'react-router-dom';
+
 export interface regist{
     id:string,
     pw:string,
@@ -27,6 +29,9 @@ function Register(){
         })
         console.log(newUser);
     }
+
+    const navigate=useNavigate();
+
     const onclick =async () =>{
         if(!newUser.id) return alert("아이디를 입력해주세요");
         if(!newUser.pw) return alert("비밀번호를 입력해주세요");
@@ -46,6 +51,12 @@ function Register(){
         });
         
         console.log(response.data.success);
+        if(response.data.success){
+            alert("로그인 해주세요");
+            navigate('/login');
+        }else{
+            return alert("회원가입 중 에러 발생");
+        }
     }
     return (
         <div>
