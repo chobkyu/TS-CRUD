@@ -2,6 +2,7 @@
 import express,{Express,Request,Response} from 'express';
 
 const User = require("../../models/UserService");
+const Board = require("../../models/BoardService");
 
 const output = { 
     home: (req:Request, res:Response) => {
@@ -25,6 +26,13 @@ const process = {
         const response = await user.register();
         console.log(response);
         return res.json(response);
+    },
+
+    write : async (req:Request, res:Response) => {
+        const board = new Board(req.body);
+        const response = await board.enroll();
+        return res.json(response);
+        
     }
 
 }

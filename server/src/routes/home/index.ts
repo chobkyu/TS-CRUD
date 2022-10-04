@@ -10,4 +10,6 @@ router.post('/login',ctrl.process.login);
 
 router.post('/register',ctrl.process.register);
 
+router.post('/write',ctrl.process.write);
+
 module.exports = router;
