@@ -2,7 +2,7 @@
 
 import { resolve } from "path";
 
-const database = require("../config/db");
+const db = require("../config/db");
 
 class UserDao{
     static getUserInfo(id:string){
