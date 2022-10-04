@@ -29,7 +29,8 @@ class BoardService{
         const board = this.body;
 
         try{
-            const response = await BoardDao.insertBoard(board);
+            const response = await BoardDao.enroll(board);
+            return response;
         }catch(err){
             return {success : false, msg : err};
         }

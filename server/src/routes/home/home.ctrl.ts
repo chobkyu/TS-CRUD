@@ -30,7 +30,8 @@ const process = {
 
     write : async (req:Request, res:Response) => {
         const board = new Board(req.body);
-        const response = await board.enroll();
+        const response = await board.insertBoard();
+        console.log(response);
         return res.json(response);
         
     }
