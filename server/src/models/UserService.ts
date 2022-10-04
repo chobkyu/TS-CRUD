@@ -10,17 +10,17 @@ export interface userInfo{
 }
 
 class UserService{
-    body: any;  //나중에 타입 수정 예정
+    body: userInfo;  //나중에 타입 수정 예정
     constructor(body:userInfo){
         this.body = body;
     }
 
     async login(){
-        const client:any = this.body;
-        const user:any = await UserDao.getUserInfo(client.id);
+        const client:userInfo = this.body;
+        const user:any = await UserDao.getUserInfo(client.userId);
         try{
             if(user){
-                if(user.id===client.id && user.pw === client.pw){
+                if(user.id===client.userId && user.pw === client.userPw){
                     return {success:true};
                 }
                 return {success : false, msg:"비밀번호가 틀렸습니다"};
