@@ -5,10 +5,12 @@ const User = require("../../models/UserService");
 const Board = require("../../models/BoardService");
 
 const output = { 
-    home: (req:Request, res:Response) => {
-        //console.log(req.body)
-        
-        res.send("hi guys");
+    home: async (req:Request, res:Response) => {
+        console.log("welcome home");
+        const board = new Board();
+        const rows = await board.listBoard();
+        console.log(rows);
+        return res.json(rows);
     },
 }
 

@@ -35,6 +35,15 @@ class BoardService{
             return {success : false, msg : err};
         }
     }
+
+    async listBoard(){
+        try{
+            const rows = await BoardDao.list();
+            return rows;
+        }catch(err){
+            return {success : false, msg : err};
+        }
+    }
 }
 
 module.exports = BoardService;

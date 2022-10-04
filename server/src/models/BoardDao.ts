@@ -17,6 +17,18 @@ class BoardDao{
         });
         
     }
+
+    static list(){
+        return new Promise((resolve,reject)=>{
+            const query:string = "select * from Board;";
+            db.query(query,(err:string,rows:Object)=>{
+                if(err){
+                    reject("${err}");
+                }
+                resolve(rows);
+            })
+        })
+    }
 }
 
 module.exports = BoardDao;
