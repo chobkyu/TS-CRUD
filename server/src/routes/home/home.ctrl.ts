@@ -9,7 +9,7 @@ const output = {
         console.log("welcome home");
         const board = new Board();
         const rows = await board.listBoard();
-        console.log(rows);
+       
         return res.json(rows);
     },
 }
@@ -22,11 +22,9 @@ const process = {
     },
 
     register : async (req:Request, res:Response) =>{
-        console.log(req.body)
-        console.log(req.body.userId);
         const user = new User(req.body);
         const response = await user.register();
-        console.log(response);
+        
         return res.json(response);
     },
 
