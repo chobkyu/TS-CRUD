@@ -4,14 +4,16 @@ import axios from 'axios';
 export interface regist{
     id:string,
     pw:string,
+    pw2:string,
     name:string,
     nickname:string
 }
 
 function Register(){
-    const [newUser, setNewUser] = useState({
+    const [newUser, setNewUser] = useState<regist>({
         id:"",
         pw:"",
+        pw2:"",
         name:"",
         nickname:"",
     }
@@ -23,10 +25,27 @@ function Register(){
             ...newUser,
             [name]:value
         })
-        
+        console.log(newUser);
     }
-    const onclick = () =>{
+    const onclick =async () =>{
+        if(!newUser.id) return alert("아이디를 입력해주세요");
+        if(!newUser.pw) return alert("비밀번호를 입력해주세요");
+        if(!newUser.pw2) return alert("비밀번호 확인을 입력해주세요");
+        if(!newUser.name) return alert("이름을 입력해주세요");
+        if(!newUser.nickname) return alert("닉네임을 입력해주세요");
+
+        if(newUser.pw!==newUser.pw2){
+            alert("비밀번호를 확인해주세요");
+            return false;
+        }
+       const response =  await axios.post('http://localhost:5000/register', {
+            userId:newUser.id,
+            userPw:newUser.pw,
+            userName:newUser.name,
+            userNickname:newUser.nickname,
+        });
         
+        console.log(response.data.success);
     }
     return (
         <div>

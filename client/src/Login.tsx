@@ -1,7 +1,13 @@
 import React from 'react';
 import './css/Login.css';
 import {  Link } from "react-router-dom";
+import axios from 'axios';
+
+
 function Login(){
+    const onclick = () => {
+        
+    }
     return (
         
         <div className="login-page">
@@ -9,7 +15,7 @@ function Login(){
                 <form className="login-form">
                         <input id="id" type="text" placeholder="userid"/>
                         <input id="passWord" type="password" placeholder="password"/>
-                        <p id="button">login</p>
+                        <p onClick = {onclick} id="button">login</p>
                         <p className="message">Not registered? <Link to="/register">Create an account</Link></p>
                 </form>
             </div>

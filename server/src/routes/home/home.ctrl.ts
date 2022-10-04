@@ -5,7 +5,7 @@ const User = require("../../models/UserService");
 
 const output = { 
     home: (req:Request, res:Response) => {
-        
+        //console.log(req.body)
         
         res.send("hi guys");
     },
@@ -19,8 +19,11 @@ const process = {
     },
 
     register : async (req:Request, res:Response) =>{
+        console.log(req.body)
+        console.log(req.body.userId);
         const user = new User(req.body);
         const response = await user.register();
+        console.log(response);
         return res.json(response);
     }
 

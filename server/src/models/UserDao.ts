@@ -19,9 +19,13 @@ class UserDao{
 
     static insertUserInfo(userInfo:userInfo){
         return new Promise((resolve,reject)=>{
+            console.log(userInfo.userId);
+            console.log(userInfo.userPw);
+            console.log(userInfo.userName);
+            console.log(userInfo.userNickname);
             const query:string = "insert into users(userId,userPw,userName,userNickname) values(?,?,?,?)";
             db.query(query,[userInfo.userId,userInfo.userPw,userInfo.userName,userInfo.userNickname],(err:string)=>{
-                if(err) reject("${err}");
+                if(err) reject(err);
                 resolve({success:true});
             })
         })
