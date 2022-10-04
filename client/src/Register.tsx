@@ -43,7 +43,7 @@ function Register(){
             alert("비밀번호를 확인해주세요");
             return false;
         }
-       const response =  await axios.post('http://localhost:5000/register', {
+        const response =  await axios.post('http://localhost:5000/register', {
             userId:newUser.id,
             userPw:newUser.pw,
             userName:newUser.name,

@@ -20,7 +20,7 @@ class UserService{
         const user:any = await UserDao.getUserInfo(client.userId);
         try{
             if(user){
-                if(user.id===client.userId && user.pw === client.userPw){
+                if(user.userId===client.userId && user.userPw === client.userPw){
                     return {success:true};
                 }
                 return {success : false, msg:"비밀번호가 틀렸습니다"};

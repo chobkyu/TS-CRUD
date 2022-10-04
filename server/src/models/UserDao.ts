@@ -9,9 +9,11 @@ const db = require("../config/db");
 class UserDao{
     static getUserInfo(id:string){
         return new Promise((resolve,reject) => {
-            const query:string = "SELECT * FROM users where id =?;";
-            db.query(query,[id], (err: any, data:any[])=>{
+            console.log(id);
+            const query:string = "SELECT * FROM users where userId =?;";
+            db.query(query,[id], (err: any, data:object[])=>{
                 if(err) reject("${err}");
+                console.log(data);
                 resolve(data[0]);
             });
         })
