@@ -14,8 +14,9 @@ function Login(){
     useEffect(()=>{
         const id = window.sessionStorage.getItem('id');
         if(id){
-            alert('이미 로그인 되어 있습니다');
             navigate('/');
+            alert('이미 로그인 되어 있습니다');
+            console.log("dho endqjsdhwl")
         }
     },[]);
     

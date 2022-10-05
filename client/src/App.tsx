@@ -9,6 +9,7 @@ import Write from './Write';
 import Board from './Board';
 
 function App() {
+  
   return (
     <div>
       <BrowserRouter>

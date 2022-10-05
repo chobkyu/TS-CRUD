@@ -3,7 +3,7 @@ import './css/Write.css';
 import { useNavigate } from "react-router-dom";
 import axios from 'axios';
 
-interface board{
+export interface board{
     title:string,
     content:string,
 }
