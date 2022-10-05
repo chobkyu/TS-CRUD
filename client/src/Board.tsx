@@ -1,6 +1,6 @@
 import React,{useEffect} from 'react';
 import axios from 'axios';
-
+import List from './List';
 import {board} from './Write';
 
 export interface boardList extends board{
@@ -16,8 +16,14 @@ function Board(){
     const test = async () => {
         const rows = await axios.get('http://localhost:5000/');
         console.log(rows.data);
-        
-        
+        if(!arrData.length){
+            let i :number = 0;
+            for(i;i<rows.data.length;i++){
+                arrData.push(rows.data[i]);
+            }
+            
+        }
+        console.log("arrDate : "+arrData[6].title);
     }
     useEffect(()=>{  //이거 두 번 실행되는 이슈 있음
         
@@ -30,6 +36,40 @@ function Board(){
             <div className = "search-box">
                 <input type="text" id="search"/>
                 <button className="btn-search">검색하기</button>
+            </div>
+
+            <div>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>번호</th>
+                            <th>제목</th>
+                            <th>작성자</th>
+                            <th>작성일</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>1</td>
+                            <td>게시글1</td>
+                            <td>artistJay</td>
+                            <td>2022-03-19</td>
+                        </tr>
+                        <tr>
+                            <td>2</td>
+                            <td>게시글2</td>
+                            <td>artistJay</td>
+                            <td>2022-03-19</td>
+                        </tr>
+                        <tr>
+                            <td>3</td>
+                            <td>게시글2</td>
+                            <td>artistJay</td>
+                            <td>2022-03-19</td>
+                        </tr>
+                    </tbody>
+                </table>
+
             </div>
         </div>
     )
