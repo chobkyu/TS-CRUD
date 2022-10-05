@@ -1,4 +1,4 @@
-import React,{useEffect} from 'react';
+import React,{useEffect, useState} from 'react';
 import axios from 'axios';
 import List from './List';
 import {board} from './Write';
@@ -10,20 +10,28 @@ export interface boardList extends board{
 
 function Board(){
     
-    const arr = new Array<boardList>();
-    const arrData = new Array();
+    /*const arr = new Array<boardList>();
+    const arrData = new Array();*/
 
+    const [arrData,setArrData] = useState<boardList[]>([]);
     const test = async () => {
         const rows = await axios.get('http://localhost:5000/');
         console.log(rows.data);
-        if(!arrData.length){
+        if(arrData){
             let i :number = 0;
             for(i;i<rows.data.length;i++){
-                arrData.push(rows.data[i]);
+                const data:boardList = {
+                    seq : rows.data[i].seq,
+                    title : rows.data[i].title,
+                    content : rows.data[i].content,
+                    date : rows.data[i].date,
+                }
+                console.log(data);
+                setArrData([...arrData, data]);
             }
             
         }
-        console.log("arrDate : "+arrData[6].title);
+        console.log("arrDate : "+arrData);
     }
     useEffect(()=>{  //이거 두 번 실행되는 이슈 있음
         
