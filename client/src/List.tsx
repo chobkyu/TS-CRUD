@@ -1,9 +1,10 @@
 import React from "react";
 
-function List(){
+function List(props:any){
+    console.log("props : "+ props)
     return(
         <div>
-
+            hi
         </div>
     )
 }
