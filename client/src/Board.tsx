@@ -64,12 +64,7 @@ function Board(){
                 <button className="btn-search">검색하기</button>
             </div>
 
-            <table>
-                <thead>
-                    <td>seq</td>
-                    <td>title</td>
-                    <td>date</td>
-                </thead>
+            
             {loading ? <strong>Loading...</strong>: 
                 <div>
                   
@@ -83,7 +78,7 @@ function Board(){
                     )}
                 
                 </div>}
-            </table>
+            
             
         </div>
     )
