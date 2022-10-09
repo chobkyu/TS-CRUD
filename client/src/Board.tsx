@@ -43,8 +43,9 @@ function Board(){
                     content : rows.data[i].content,
                     date : rows.data[i].date,
                 }
-                console.log(data);
+                //console.log(data);
                 setArrData([...arrData, data]);
+                console.log("arrDate : "+arrData);
             }
             
         }
@@ -67,16 +68,13 @@ function Board(){
             
             {loading ? <strong>Loading...</strong>: 
                 <div>
-                  
-                    {arrData.map((data:boardList) =>(
+                
                         <List 
-                            data={data}
+                            data={arrData}
                        
                         />
-                    )
-                    
-                    )}
-                
+                   
+             
                 </div>}
             
             
