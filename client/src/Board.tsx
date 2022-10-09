@@ -7,6 +7,7 @@ import { response } from 'express';
 export interface boardList extends board{
     seq:number,
     date:string,
+    userId:string
 }
 
 function Board(){
@@ -33,7 +34,7 @@ function Board(){
     const [arrData,setArrData] = useState<boardList[]>([]);
     const test = async () => {
         const rows = await axios.get('http://localhost:5000/');
-        console.log(rows.data);
+        //console.log(rows.data);
         if(arrData){
             let i :number = 0;
             for(i;i<rows.data.length;i++){
@@ -41,11 +42,12 @@ function Board(){
                     seq : rows.data[i].seq,
                     title : rows.data[i].title,
                     content : rows.data[i].content,
+                    userId : rows.data[i].userId,
                     date : rows.data[i].date,
                 }
                 //console.log(data);
-                setArrData([...arrData, data]);
-                console.log("arrDate : "+arrData);
+                setArrData(arrData=>[...arrData, data]);
+                //console.log("arrDate : "+arrData);
             }
             
         }
@@ -58,6 +60,9 @@ function Board(){
         test();
     },[])
     
+    if(!{setLoading}){
+        console.log("test: "+ arrData);
+    }
     return(
         <div>
             <div className = "search-box">
@@ -71,6 +76,7 @@ function Board(){
                 
                         <List 
                             datas={arrData}
+                           
                        
                         />
                    

@@ -46,7 +46,7 @@
 }
 
 td textarea.content{ /*작성내용 작성 하는 공간*/
-    width:80%;
+    width:100%;
     height:300px;
     white-space:pre-line;
     border:1px solid black;

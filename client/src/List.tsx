@@ -3,7 +3,7 @@ import Table from "./Table";
 import './css/Table.css';
 function List(props:any){
     useEffect(()=>{
-        console.log("List : " +props.datas[0]);
+        console.log("List : " +props.datas.length);
     },[])
     
     return(
@@ -12,6 +12,7 @@ function List(props:any){
                 <thead>
                     <th>seq</th>
                     <th>title</th>
+                    <th>userId</th>
                     <th>date</th>
                 </thead>
             
