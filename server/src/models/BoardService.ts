@@ -48,6 +48,15 @@ class BoardService{
             return {success : false, msg : err};
         }
     }
+
+    async readBoard(seq:number){
+        try{
+            const row = await BoardDao.read(seq);
+            return row;
+        }catch(err){
+            return {success : false, msg : err};
+        }
+    }
 }
 
 module.exports = BoardService;

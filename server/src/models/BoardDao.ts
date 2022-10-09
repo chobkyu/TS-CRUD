@@ -29,6 +29,16 @@ class BoardDao{
             })
         })
     }
+
+    static read(seq:number){
+        return new Promise((resolve,reject)=>{
+            const query:string = "select * from Board where seq = ?;";
+            db.query(query,[seq],(err:string,row:object)=>{
+                if(err) reject(err);
+                resolve(row);
+            })
+        })
+    }
 }
 
 module.exports = BoardDao;

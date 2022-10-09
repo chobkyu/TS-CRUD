@@ -12,4 +12,6 @@ router.post('/register',ctrl.process.register);
 
 router.post('/write',ctrl.process.write);
 
+router.post('/read', ctrl.process.read);
+
 module.exports = router;

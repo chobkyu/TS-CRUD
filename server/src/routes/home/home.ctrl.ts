@@ -39,6 +39,15 @@ const process = {
         console.log(response);
         return res.json(response);
         
+    },
+
+    read :async (req:Request, res:Response) => {
+        const seq = req.body.seq;
+        console.log(seq);
+        const board = new Board(req.body);
+        const response = await board.readBoard(seq);
+        console.log(response);
+        return res.json(response);
     }
 
 }
