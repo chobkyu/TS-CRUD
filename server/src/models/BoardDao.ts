@@ -9,8 +9,8 @@ const db = require("../config/db");
 class BoardDao{
     static enroll(board:Board){
         return new Promise((resolve,reject)=>{
-            const query:string = "insert into Board(title,content,date) values(?,?,?);";
-            db.query(query,[board.title,board.content,board.date],(err:string)=>{
+            const query:string = "insert into Board(title,content,date,userId) values(?,?,?,?);";
+            db.query(query,[board.title,board.content,board.date,board.userId],(err:string)=>{
                 if(err) reject(err);
                 resolve({success:true});
             });

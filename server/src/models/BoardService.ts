@@ -6,15 +6,19 @@ export interface Board{
     title:string,
     content:string,
     date:string,
+    userId:String
 }
 
 class BoardService{
     body: Board;
-    constructor(body:Board){
+    constructor(body:Board,userId:String){
         this.body = body;
+        this.body.userId = userId
     } 
     
     async insertBoard(){
+        
+        
         let today = new Date();   
         let year = today.getFullYear(); // 년도
         let month = today.getMonth() + 1;  // 월

@@ -3,9 +3,9 @@ import Table from "./Table";
 
 function List(props:any){
     useEffect(()=>{
-        console.log("List : " +props.data[0]);
+        console.log("List : " +props.datas[0]);
     },[])
-    console.log("props : "+ props)
+    
     return(
         <div>
             <table>
@@ -17,7 +17,7 @@ function List(props:any){
             </table>
             <tbody>
                 <tr>
-                {props.data.map((data:any) => (
+                {props.datas.map((data:any) => (
                     <Table
                         data={data}
                     />

@@ -1,6 +1,6 @@
 "use strict";
 import express,{Express,Request,Response} from 'express';
-
+import { Session } from 'inspector';
 const User = require("../../models/UserService");
 const Board = require("../../models/BoardService");
 
@@ -18,6 +18,10 @@ const process = {
     login : async (req:Request, res:Response) => {
         const user = new User(req.body);
         const response = await user.login();
+        console.log(response);
+        if(response.success){
+            //세션 부분 추가해야됨
+        }
         return res.json(response);
     },
 
@@ -29,7 +33,8 @@ const process = {
     },
 
     write : async (req:Request, res:Response) => {
-        const board = new Board(req.body);
+        console.log(sessionStorage.userId)
+        const board = new Board(req.body, sessionStorage.userId);
         const response = await board.insertBoard();
         console.log(response);
         return res.json(response);

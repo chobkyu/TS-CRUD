@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 
 function Table(props:any){
-    console.log(props);
+    console.log("여기는 테이블"+props.data);
     return(
         <div>
             <td>{props.data.seq}</td>

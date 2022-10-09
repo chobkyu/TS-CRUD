@@ -70,7 +70,7 @@ function Board(){
                 <div>
                 
                         <List 
-                            data={arrData}
+                            datas={arrData}
                        
                         />
                    
