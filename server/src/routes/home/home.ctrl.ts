@@ -33,8 +33,8 @@ const process = {
     },
 
     write : async (req:Request, res:Response) => {
-        console.log(sessionStorage.userId)
-        const board = new Board(req.body, sessionStorage.userId);
+        //console.log(sessionStorage.userId)
+        const board = new Board(req.body);
         const response = await board.insertBoard();
         console.log(response);
         return res.json(response);

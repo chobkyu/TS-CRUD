@@ -11,9 +11,9 @@ export interface Board{
 
 class BoardService{
     body: Board;
-    constructor(body:Board,userId:String){
+    constructor(body:Board){
         this.body = body;
-        this.body.userId = userId
+       
     } 
     
     async insertBoard(){
