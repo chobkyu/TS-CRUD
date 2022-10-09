@@ -1,4 +1,4 @@
-import React,{useState} from 'react';
+import React,{useState,useEffect} from 'react';
 import './css/Write.css';
 import { useNavigate } from "react-router-dom";
 import axios from 'axios';
@@ -14,6 +14,15 @@ function Write(){
         content:"",
     });
 
+    useEffect(()=>{
+        const id = window.sessionStorage.getItem('id');
+        if(!id){
+            navigate('/login');
+            alert('로그인 해주세요');
+            
+        }
+    },[]);
+
     const onchange = (e:any) => {
         const {name, value} = e.target;
         setBoard({
@@ -28,6 +37,7 @@ function Write(){
         const response = await axios.post('http://localhost:5000/write',{
             title:board.title,
             content:board.content,
+            userId:window.sessionStorage.getItem('id')
         });
         console.log(response.data);
 

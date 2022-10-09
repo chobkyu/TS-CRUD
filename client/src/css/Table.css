@@ -29,3 +29,7 @@ table {
     background: #fff;
     text-align: center;
   }
+
+  .tr{
+    width: 100%;
+  }

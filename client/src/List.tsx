@@ -14,17 +14,17 @@ function List(props:any){
                     <th>title</th>
                     <th>date</th>
                 </thead>
-            </table>
-            <tbody>
-                
-                {props.datas.map((data:any) => (
-                    <Table
-                        data={data}
-                    />
-                ))}
-                
-            </tbody>
             
+                <tbody>
+                    
+                    {props.datas.map((data:any) => (
+                        <Table
+                            data={data}
+                        />
+                    ))}
+                    
+                </tbody>
+            </table>
         </div>
     )
 }
