@@ -35,9 +35,32 @@ function Open(){
     return(
         <div>
             {loading ?<strong>loading...</strong>:
-                <div>
-                    {data[0].seq}
-                </div>
+               <div className = "input-Board">
+                
+               <div className = 'bar2'>
+                   <h1>Title</h1>
+               </div>
+               <input name='title' type="text" className="search-input" value={data[0].title} disabled/>
+               <div className = 'bar2'>
+                   <h1>content</h1>
+               </div>
+               <table className="content_table">
+                   <tr>
+                       <td><textarea name="content" className="content" id="content" disabled>{data[0].content}</textarea>
+                       </td>
+                   </tr>
+               </table>
+
+               <div className = 'bar2'>
+                   <h1>ID & Date</h1>
+               </div>
+               <input name='title' type="text" className="search-input" value={data[0].userId} disabled/>
+
+               <input name='title' type="text" className="search-input" value={data[0].date} disabled/>
+               
+               <button className="d-btn" >목록</button>
+               
+           </div>
             }
         </div>
     )
