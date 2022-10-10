@@ -7,6 +7,7 @@ import Login from './routes/Login';
 import Register from './routes/Register';
 import Write from './routes/Write';
 import Board from './routes/Board';
+import Open from './components/Open';
 
 function App() {
   
@@ -19,6 +20,7 @@ function App() {
           <Route path="/login" element={<Login></Login>}/>
           <Route path="/register" element={<Register></Register>}/>
           <Route path="/write" element={<Write/>}/>
+          <Route path="/open/:seq" element={<Open/>}/>
         </Routes>
         
       </BrowserRouter>
