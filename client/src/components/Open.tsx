@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import {useEffect} from "react";
-import {useParams} from "react-router-dom";
+import {Link, useParams} from "react-router-dom";
 import axios from "axios";
 import { boardList } from '../routes/Board';
 
@@ -58,7 +58,7 @@ function Open(){
 
                <input name='title' type="text" className="search-input" value={data[0].date} disabled/>
                
-               <button className="d-btn" >목록</button>
+               <button className="d-btn" ><Link to="/" >목록</Link></button>
                
            </div>
             }
