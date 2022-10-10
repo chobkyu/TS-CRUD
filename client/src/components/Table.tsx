@@ -1,6 +1,6 @@
 import axios from "axios";
 import React, { useEffect } from "react";
-import './css/Table.css';
+import '../css/Table.css';
 
 function Table(props:any){
     const onclick = async () =>{

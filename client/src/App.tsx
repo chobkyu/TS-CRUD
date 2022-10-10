@@ -2,11 +2,11 @@ import React from 'react';
 import logo from './logo.svg';
 import './css/App.css';
 import { BrowserRouter, Route ,Routes} from 'react-router-dom';
-import Header from './Header';
-import Login from './Login';
-import Register from './Register';
-import Write from './Write';
-import Board from './Board';
+import Header from './components/Header';
+import Login from './routes/Login';
+import Register from './routes/Register';
+import Write from './routes/Write';
+import Board from './routes/Board';
 
 function App() {
   

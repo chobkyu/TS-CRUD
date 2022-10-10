@@ -1,6 +1,6 @@
 import React,{useEffect, useState} from 'react';
 import axios from 'axios';
-import List from './List';
+import List from '../components/List';
 import {board} from './Write';
 import { response } from 'express';
 
