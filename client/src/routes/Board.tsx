@@ -35,7 +35,8 @@ function Board(){
     const test = async () => {
         const rows = await axios.get('http://localhost:5000/');
         //console.log(rows.data);
-        if(arrData){
+        
+            console.log(arrData.length)
             let i :number = 0;
             for(i;i<rows.data.length;i++){
                 const data:boardList = {
@@ -46,18 +47,20 @@ function Board(){
                     date : rows.data[i].date,
                 }
                 //console.log(data);
-                setArrData(arrData=>[...arrData, data]);
+                setArrData([...arrData, data]);
                 //console.log("arrDate : "+arrData);
-            }
-            
-        }
+            }           
+        //setArrData(rows);
         console.log("arrDate : "+arrData);
         setLoading(false);
     }
+    
     useEffect(()=>{  //이거 두 번 실행되는 이슈 있음
-        
         console.log("이게 왜 두번 실행?")
-        test();
+        if(arrData){
+            test(); 
+        }
+        
     },[])
     
     if(!{setLoading}){
@@ -73,14 +76,10 @@ function Board(){
             
             {loading ? <strong>Loading...</strong>: 
                 <div>
-                
-                        <List 
-                            datas={arrData}
-                        />
-                
+                    <List 
+                        datas={arrData}
+                    />
                 </div>}
-            
-            
         </div>
     )
 }
