@@ -76,11 +76,8 @@ function Board(){
                 
                         <List 
                             datas={arrData}
-                           
-                       
                         />
-                   
-             
+                
                 </div>}
             
             

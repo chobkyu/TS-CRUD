@@ -39,6 +39,16 @@ class BoardDao{
             })
         })
     }
+
+    static search(text:String){
+        return new Promise((resolve,reject) => {
+            const query:String = "select * from Board where title=?;";
+            db.query(query,[text],(err:string,rows:object)=>{
+                if(err) reject(err);
+                resolve(rows);
+            })
+        })
+    }
 }
 
 module.exports = BoardDao;

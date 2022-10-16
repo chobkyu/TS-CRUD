@@ -3,6 +3,7 @@ import Table from "./Table";
 import '../css/Table.css';
 function List(props:any){
     useEffect(()=>{
+        
         console.log("List : " +props.datas.length);
     },[])
     

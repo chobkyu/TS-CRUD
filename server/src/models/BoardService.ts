@@ -57,6 +57,15 @@ class BoardService{
             return {success : false, msg : err};
         }
     }
+
+    async searchBoard(text:String){
+        try{
+            const rows = await BoardDao.searchBoard(text);
+            return rows;
+        } catch(err){
+            return {success : false, msg :err};
+        }
+    }
 }
 
 module.exports = BoardService;

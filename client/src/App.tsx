@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import logo from './logo.svg';
 import './css/App.css';
 import { BrowserRouter, Route ,Routes} from 'react-router-dom';
@@ -6,11 +6,12 @@ import Header from './components/Header';
 import Login from './routes/Login';
 import Register from './routes/Register';
 import Write from './routes/Write';
-import Board from './routes/Board';
+import Board, { boardList } from './routes/Board';
 import Open from './components/Open';
+import axios from 'axios';
 
 function App() {
-  
+ 
   return (
     <div>
       <BrowserRouter>
