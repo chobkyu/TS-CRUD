@@ -55,22 +55,43 @@ function Board(){
         setLoading(false);
     }
     
-    useEffect(()=>{  //이거 두 번 실행되는 이슈 있음
-        console.log("이게 왜 두번 실행?")
-        if(arrData){
-            test(); 
-        }
+    useEffect(()=>{  
         
+        test(); 
+                
     },[])
     
-    if(!{setLoading}){
-        console.log("test: "+ arrData);
+    const [search,setSearch] = useState({title:""});
+
+    const onChange = (e:any) => {
+        const {name,value} = e.target;
+        setSearch({
+            ...search,
+            [name] : value
+        });
+        console.log(search)
     }
+
+    const onClick = async () => {
+        setLoading(true);
+        const title = search;
+        console.log("검색어 : "+ title.title);
+
+        const response = await axios.post('http://localhost:5000/search',{
+            title:title.title
+        });
+        console.log(response.data);
+        
+        setArrData(response.data);
+        console.log(arrData);
+        setLoading(false);
+    }
+
     return(
         <div>
             <div className = "search-box">
-                <input type="text" id="search"/>
-                <button className="btn-search">검색하기</button>
+                <input type="text" name="title" id="search" onChange={onChange}/>
+                <button onClick={onClick} className="btn-search">검색하기</button>
             </div>
 
             

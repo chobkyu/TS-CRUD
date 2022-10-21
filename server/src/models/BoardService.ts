@@ -59,8 +59,9 @@ class BoardService{
     }
 
     async searchBoard(text:String){
+        const key = text;
         try{
-            const rows = await BoardDao.search(text);
+            const rows = await BoardDao.search(key);
             return rows;
         } catch(err){
             return {success : false, msg :err};
