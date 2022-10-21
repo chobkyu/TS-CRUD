@@ -47,7 +47,7 @@ function Board(){
                     date : rows.data[i].date,
                 }
                 //console.log(data);
-                setArrData([...arrData, data]);
+                setArrData(arrData => [...arrData, data]);
                 //console.log("arrDate : "+arrData);
             }           
         //setArrData(rows);
