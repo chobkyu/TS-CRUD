@@ -13,7 +13,7 @@ function Write(){
         title:"",
         content:"",
     });
-
+    const navigate=useNavigate();
     useEffect(()=>{
         const id = window.sessionStorage.getItem('id');
         if(!id){
@@ -30,7 +30,7 @@ function Write(){
             [name]:value
         }); 
     }
-    const navigate=useNavigate();
+    
 
     const onclick = async () => {
         if(!board.title||!board.content) return alert("제목과 내용을 입력해주세요");
