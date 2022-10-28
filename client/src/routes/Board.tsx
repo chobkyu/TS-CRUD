@@ -1,32 +1,13 @@
 import React,{useEffect, useState} from 'react';
 import axios from 'axios';
 import List from '../components/List';
-import {board} from '../interface/board';
 import {boardList} from '../interface/boardList';
-import { response } from 'express';
+
 
 
 
 function Board(){
-    /*
-    
-    const [boardData, setBoardData] = useState([]);
-    const board = async() =>{
-        const response = async () => await axios.get('http://localhost:5000/');
-        const json = await response; 
-        console.log(json);
-        //setBoardData([...boardData,response]);
-        setLoading(false);
-        console.log(boardData);
-    }
-    useEffect(()=>{  //이거 두 번 실행되는 이슈 있음
-        
-        console.log("이게 왜 두번 실행?")
-        board();
-    },[])
-    const arr = new Array<boardList>();
-    const arrData = new Array();
-*/
+
     const [loading, setLoading] = useState(true);
     const [arrData,setArrData] = useState<boardList[]>([]);
     const test = async () => {
