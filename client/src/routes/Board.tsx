@@ -1,14 +1,11 @@
 import React,{useEffect, useState} from 'react';
 import axios from 'axios';
 import List from '../components/List';
-import {board} from './Write';
+import {board} from '../interface/board';
+import {boardList} from '../interface/boardList';
 import { response } from 'express';
 
-export interface boardList extends board{
-    seq:number,
-    date:string,
-    userId:string
-}
+
 
 function Board(){
     /*

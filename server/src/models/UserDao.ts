@@ -2,7 +2,7 @@
 
 import { rejects } from "assert";
 import { resolve } from "path";
-import { userInfo } from "./UserService";
+import { userInfo } from "../interface/userInfo";
 
 const db = require("../config/db");
 

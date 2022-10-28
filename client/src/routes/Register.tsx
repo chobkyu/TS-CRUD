@@ -2,14 +2,7 @@ import React,{useState} from 'react';
 import '../css/Login.css';
 import axios from 'axios';
 import {useNavigate} from 'react-router-dom';
-
-export interface regist{
-    id:string,
-    pw:string,
-    pw2:string,
-    name:string,
-    nickname:string
-}
+import {regist} from '../interface/regist'
 
 function Register(){
     const [newUser, setNewUser] = useState<regist>({

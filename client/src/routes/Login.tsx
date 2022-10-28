@@ -2,11 +2,8 @@ import React,{useState,useEffect} from 'react';
 import '../css/Login.css';
 import {  Link, useNavigate } from "react-router-dom";
 import axios from 'axios';
+import {login} from '../interface/login';
 
-interface login{
-    userId:string,
-    userPw:string,
-}
 
 function Login(){
     const navigate=useNavigate();

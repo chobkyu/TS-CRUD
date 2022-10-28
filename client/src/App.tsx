@@ -6,7 +6,8 @@ import Header from './components/Header';
 import Login from './routes/Login';
 import Register from './routes/Register';
 import Write from './routes/Write';
-import Board, { boardList } from './routes/Board';
+import Board from './routes/Board';
+
 import Open from './components/Open';
 import axios from 'axios';
 

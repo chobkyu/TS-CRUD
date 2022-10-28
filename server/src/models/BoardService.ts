@@ -1,13 +1,10 @@
 "use strict";
 
+import { Board } from "../interface/Board";
+
 const BoardDao = require("./BoardDao");
 
-export interface Board{
-    title:string,
-    content:string,
-    date:string,
-    userId:String
-}
+
 
 class BoardService{
     body: Board;

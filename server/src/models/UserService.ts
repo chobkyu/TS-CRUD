@@ -1,13 +1,10 @@
 "use strict";
 
+import { userInfo } from "../interface/userInfo";
+
 const UserDao = require("./UserDao");
 
-export interface userInfo{
-    userId:string,
-    userPw:string,
-    userName:string,
-    userNickname:string,
-}
+
 
 class UserService{
     body: userInfo;  //나중에 타입 수정 예정

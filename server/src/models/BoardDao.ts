@@ -2,7 +2,8 @@
 
 import { rejects } from "assert";
 import { resolve } from "path";
-import {Board} from "./BoardService";
+import { Board } from "../interface/Board";
+
 
 const db = require("../config/db");
 
