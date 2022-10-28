@@ -7,7 +7,7 @@ import Login from './routes/Login';
 import Register from './routes/Register';
 import Write from './routes/Write';
 import Board from './routes/Board';
-
+import Map from './components/Map'
 import Open from './components/Open';
 import axios from 'axios';
 
@@ -23,6 +23,7 @@ function App() {
           <Route path="/register" element={<Register></Register>}/>
           <Route path="/write" element={<Write/>}/>
           <Route path="/open/:seq" element={<Open/>}/>
+          <Route path='/map' element={<Map/>}/>
         </Routes>
         
       </BrowserRouter>

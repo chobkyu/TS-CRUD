@@ -10,6 +10,7 @@ function Header(){
               <Link to="/">메인페이지</Link>
               <Link to="/write">글쓰기</Link>
               <Link to="/login">로그인</Link>
+              <Link to="/map">지도</Link>
             </div>
           </nav>
         </header>
