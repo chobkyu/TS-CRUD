@@ -64,6 +64,28 @@ class BoardService{
             return {success : false, msg :err};
         }
     }
+
+    async modify(){
+        let today = new Date();   
+        let year = today.getFullYear(); // 년도
+        let month = today.getMonth() + 1;  // 월
+        let day = today.getDate();  // 날짜
+        let hours = today.getHours(); // 시
+        let minutes = today.getMinutes();  // 분
+        
+        const date:string = year+"/"+month+"/"+ day + " "+ hours+':'+minutes; 
+        
+        this.body.date = date;
+
+        const board = this.body;
+
+        try{
+            const response = await BoardDao.modify(board);
+            return response;
+        }catch(err){
+            return {success : false, msg : err};
+        }
+    }
 }
 
 module.exports = BoardService;

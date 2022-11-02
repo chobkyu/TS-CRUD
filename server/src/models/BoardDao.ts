@@ -50,6 +50,16 @@ class BoardDao{
             })
         })
     }
+
+    static modify(board:Board){
+        return new Promise((resolve,reject)=>{
+            const query:string = "update Board set title=?, content=?, date=? where seq=?;";
+            db.query(query,[board.title,board.content,board.date,board.seq],(err:string) => {
+                if(err) reject(err);
+                resolve({success:true});
+            })
+        })
+    }
 }
 
 module.exports = BoardDao;

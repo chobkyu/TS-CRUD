@@ -16,4 +16,6 @@ router.post('/read', ctrl.process.read);
 
 router.post('/search',ctrl.process.search);
 
+router.post('/modify', ctrl.process.modify);
+
 module.exports = router;

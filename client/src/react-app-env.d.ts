@@ -1,5 +1,5 @@
 /// <reference types="react-scripts" />
 declare global {
-interface window {
+interface Window {
     Kakao: any
 }}

@@ -10,6 +10,7 @@ import Board from './routes/Board';
 import Map from './components/Map'
 import Open from './components/Open';
 import axios from 'axios';
+import Modify from './components/Modify';
 
 function App() {
  
@@ -24,6 +25,7 @@ function App() {
           <Route path="/write" element={<Write/>}/>
           <Route path="/open/:seq" element={<Open/>}/>
           <Route path='/map' element={<Map/>}/>
+          <Route path="modify/:seq" element={<Modify/>}/>
         </Routes>
         
       </BrowserRouter>

@@ -58,12 +58,17 @@ const process = {
         const rows = await board.searchBoard(title);
         console.log(rows);
         return res.json(rows);
+    },
+
+    modify : async (req:Request, res:Response) => {
+        const board = new Board(req.body);
+        const response = await board.modify();
+        return res.json(response);
     }
 
 }
 module.exports = {
     output,
-    
     process,
 };
 

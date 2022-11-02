@@ -1,16 +1,28 @@
-import React, { useState } from 'react';
-import {useEffect} from "react";
-import {Link, Navigate, useNavigate, useParams} from "react-router-dom";
 import axios from "axios";
-import { boardList } from '../interface/boardList';
+import { useEffect, useState } from "react";
+import { Link, useNavigate, useParams } from "react-router-dom";
+import { boardList } from "../interface/boardList";
+import {board} from '../interface/board';
 
-
-function Open(){
+function Modify(){
     const [loading,setLoading] = useState(true);
     const [data,setData] = useState<boardList[]>([]);
     const {seq} = useParams();
     const navigate=useNavigate();
     let row;
+
+    const [board,setBoard] =useState<board>({
+        title:"",
+        content:"",
+    });
+
+    const onchange = (e:any) => {
+        const {name, value} = e.target;
+        setBoard({
+            ...board,
+            [name]:value
+        }); 
+    }
     const open = async () =>{
         
         row = await axios.post('http://localhost:5000/read',{seq:seq});
@@ -25,18 +37,20 @@ function Open(){
         setData([...data, dataDB]);
         setLoading(false);
     };
+
     useEffect(()=>{
        open(); 
-       
     },[])
 
     const onclick = () => {
         const id = window.sessionStorage.getItem('id');
         console.log("hi")
         if(id===data[0].userId){
-            navigate('/modify/'+seq)
+            if(!board.title||!board.content) return alert("제목과 내용을 입력해주세요");
+            
         }else{
             alert('권한이 없습니다');
+            navigate("/");
         }
     }
 
@@ -51,13 +65,13 @@ function Open(){
                <div className = 'bar2'>
                    <h1>Title</h1>
                </div>
-               <input name='title' type="text" className="search-input" value={data[0].title} disabled/>
+               <input name='title' type="text" className="search-input" value={data[0].title} onChange={onchange}/>
                <div className = 'bar2'>
                    <h1>content</h1>
                </div>
                <table className="content_table">
                    <tr>
-                       <td><textarea name="content" className="content" id="content" disabled>{data[0].content}</textarea>
+                       <td><textarea name="content" className="content" id="content" onChange={onchange}>{data[0].content}</textarea>
                        </td>
                    </tr>
                </table>
@@ -69,8 +83,8 @@ function Open(){
 
                <input name='title' type="text" className="search-input" value={data[0].date} disabled/>
                
-               <button className="d-btn" ><Link to="/" >목록</Link></button>
-               <button className="m-btn" onClick={onclick}>수정</button>
+               <button className="d-btn" >완료</button>
+               
                
            </div>
             }
@@ -78,4 +92,4 @@ function Open(){
     )
 }
 
-export default Open;
+export default Modify;
