@@ -65,10 +65,6 @@ class BoardService{
         }
     }
 
-    async gotoModi(){
-        const seq = this.body.seq;
-    }
-
     async modify(){
         let today = new Date();   
         let year = today.getFullYear(); // 년도
