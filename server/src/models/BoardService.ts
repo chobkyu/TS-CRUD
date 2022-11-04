@@ -65,6 +65,10 @@ class BoardService{
         }
     }
 
+    async gotoModi(){
+        const seq = this.body.seq;
+    }
+
     async modify(){
         let today = new Date();   
         let year = today.getFullYear(); // 년도
@@ -80,8 +84,8 @@ class BoardService{
         const board = this.body;
 
         try{
-            const response = await BoardDao.modify(board);
-            return response;
+            const row = await BoardDao.modify(board);
+            return row;
         }catch(err){
             return {success : false, msg : err};
         }

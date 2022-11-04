@@ -60,10 +60,12 @@ const process = {
         return res.json(rows);
     },
 
+
     modify : async (req:Request, res:Response) => {
+        console.log(req.body);
         const board = new Board(req.body);
-        const response = await board.modify();
-        return res.json(response);
+        const row = await board.modify();
+        return res.json(row);
     }
 
 }
