@@ -18,4 +18,8 @@ router.post('/search',ctrl.process.search);
 
 router.post('/modify', ctrl.process.modify);
 
+router.post('/insertComment', ctrl.process.insertComment);
+
+router.post('/deleteComment', ctrl.process.deleteComment);
+
 module.exports = router;

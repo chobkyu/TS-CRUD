@@ -3,6 +3,7 @@ import express,{Express,Request,Response} from 'express';
 const session = require("express-session");
 const User = require("../../models/UserService");
 const Board = require("../../models/BoardService");
+const Comment = require("../../models/CommentService");
 
 const output = { 
     home: async (req:Request, res:Response) => {
@@ -66,6 +67,20 @@ const process = {
         const board = new Board(req.body);
         const row = await board.modify();
         return res.json(row);
+    },
+
+    insertComment : async (req:Request, res:Response) => {
+        console.log(req.body);
+        const comment = new Comment(req.body);
+        const response = await comment.insertComment();
+        return res.json(response);
+    },
+
+    deleteComment : async (req:Request, res:Response) => {
+        console.log(req.body);
+        const comment = new Comment(req.body);
+        const response = await comment.deleteComment();
+        return res.json(response);
     }
 
 }

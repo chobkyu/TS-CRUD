@@ -5,10 +5,11 @@ const db = require("../config/db");
 
 
 class CommentDao{
-    static insertComment(comment:Comment){
+    static insertComment(Comment:Comment){
+        console.log(Comment);
         return new Promise((resolve,reject) => {
             const query:string = "insert into comment(comment,date,seq) values(?,?,?);";
-            db.query(query,[comment.comment,comment.date,comment.seq],(err:string)=>{
+            db.query(query,[Comment.comment,Comment.date,Comment.seq],(err:string)=>{
                 if(err) reject(err);
                 resolve({success:true});
             })
