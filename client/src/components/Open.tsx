@@ -72,6 +72,12 @@ function Open(){
                <button className="d-btn" ><Link to="/" >목록</Link></button>
                <button className="m-btn" onClick={onclick}>수정</button>
                
+
+               <div className='comment'>
+                    <h2>Comment</h2>
+                    <textarea className='comment'></textarea>
+                    <button className='c-btn'>등록</button>
+                </div>
            </div>
             }
         </div>

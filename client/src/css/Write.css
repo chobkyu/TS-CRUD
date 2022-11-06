@@ -58,8 +58,32 @@ button.d-btn{  /*게시글 등록 완료 버튼*/
     color:#fff;
     width:80px;
     height: 40px;
-    top:90%;
+    top:95%;
     left:45%;
+    border:0px;
+    border-radius:10%;
+}
+
+.comment{
+    margin-top : 20px;
+}
+
+textarea.comment{ /*작성내용 작성 하는 공간*/
+    width:80%;
+    height:50px;
+    
+    white-space:pre-line;
+    border:1px solid black;
+}
+
+.c-btn{
+    position:absolute;
+    background: black;
+    color:#fff;
+    width:80px;
+    height: 40px;
+    top:86%;
+    left:84%;
     border:0px;
     border-radius:10%;
 }
