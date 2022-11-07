@@ -41,6 +41,16 @@ class CommentService{
             return {success : false, msg : err};
         }
     }
+
+    async viewComment(){
+        try{
+            const rows = await CommentDao.viewComment(this.body.seq);
+            return rows;
+        }catch(err){
+            console.log(err);
+            return {success : false, msg : err}
+        }
+    }
 }
 
 module.exports = CommentService;

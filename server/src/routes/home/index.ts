@@ -22,4 +22,6 @@ router.post('/insertComment', ctrl.process.insertComment);
 
 router.post('/deleteComment', ctrl.process.deleteComment);
 
+router.post('/viewComment', ctrl.process.viewComment)
+
 module.exports = router;

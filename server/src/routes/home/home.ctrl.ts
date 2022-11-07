@@ -81,6 +81,13 @@ const process = {
         const comment = new Comment(req.body);
         const response = await comment.deleteComment();
         return res.json(response);
+    },
+
+    viewComment : async (req:Request, res:Response) => {
+        const comment = new Comment(req.body);
+        const rows = await comment.viewComment();
+        return res.json(rows);
+       
     }
 
 }
