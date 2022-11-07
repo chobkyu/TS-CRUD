@@ -8,8 +8,8 @@ class CommentDao{
     static insertComment(Comment:Comment){
         console.log(Comment);
         return new Promise((resolve,reject) => {
-            const query:String = "insert into comment(comment,date,seq) values(?,?,?);";
-            db.query(query,[Comment.comment,Comment.date,Comment.seq],(err:string)=>{
+            const query:String = "insert into comment(comment,date,seq,userId) values(?,?,?,?);";
+            db.query(query,[Comment.comment,Comment.date,Comment.seq,Comment.userId],(err:string)=>{
                 if(err) reject(err);
                 resolve({success:true});
             })

@@ -2,5 +2,6 @@ export interface Comment{
     id:number,
     comment:String,
     date:String,
-    seq:number
+    seq:number,
+    userId:String
 }

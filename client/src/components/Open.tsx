@@ -8,10 +8,11 @@ import {comment} from '../interface/comment';
 function Open(){
     const [loading,setLoading] = useState(true);
     const [data,setData] = useState<boardList[]>([]);
-    const [comment,setComment] = useState();
     const {seq} = useParams();
     const navigate=useNavigate();
     let row;
+    const [comment,setComment] = useState();
+
     const open = async () =>{
         
         row = await axios.post('http://localhost:5000/read',{seq:seq});
@@ -46,10 +47,15 @@ function Open(){
     }
 
     const submitComment = async () => {
-        
+        const id = window.sessionStorage.getItem('id');
+        if(id===null){
+            alert("로그인이 필요합니다");
+            return;
+        }
         const response = await axios.post('http://localhost:5000/insertComment',{
             comment:comment,
-            seq:seq
+            seq:seq,
+            userId:window.sessionStorage.getItem('id')
         });
         console.log(response.data);
 
