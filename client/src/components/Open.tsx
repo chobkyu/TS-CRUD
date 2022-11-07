@@ -8,9 +8,11 @@ import {comment} from '../interface/comment';
 function Open(){
     const [loading,setLoading] = useState(true);
     const [data,setData] = useState<boardList[]>([]);
+    const [commentList,setCommentList] = useState<comment[]>([]);
     const {seq} = useParams();
     const navigate=useNavigate();
     let row;
+    let commentRow:comment;
     const [comment,setComment] = useState();
 
     const open = async () =>{
@@ -25,6 +27,12 @@ function Open(){
             date : row.data[0].date,
         }
         setData([...data, dataDB]);
+
+        commentRow =  await axios.post('http://localhost:5000/read',{seq:seq});
+        console.log(commentRow);
+        setCommentList([...commentList,commentRow]);
+
+                
         setLoading(false);
     };
     useEffect(()=>{

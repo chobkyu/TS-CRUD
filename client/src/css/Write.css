@@ -42,7 +42,8 @@
    /***********content_table**************/
 .content_table{ /**table 로  자식으로 .content가 있음*/
     margin-bottom:10px;
-    width:100%;
+    width:80%;
+    border:0px
 }
 
 td textarea.content{ /*작성내용 작성 하는 공간*/
