@@ -3,11 +3,12 @@ import {useEffect} from "react";
 import {Link, Navigate, useNavigate, useParams} from "react-router-dom";
 import axios from "axios";
 import { boardList } from '../interface/boardList';
-
+import {comment} from '../interface/comment';
 
 function Open(){
     const [loading,setLoading] = useState(true);
     const [data,setData] = useState<boardList[]>([]);
+    const [comment,setComment] = useState();
     const {seq} = useParams();
     const navigate=useNavigate();
     let row;
@@ -43,6 +44,28 @@ function Open(){
     if(!{setLoading}){
         console.log("test: "+ row);
     }
+
+    const submitComment = async () => {
+        
+        const response = await axios.post('http://localhost:5000/insertComment',{
+            comment:comment,
+            seq:seq
+        });
+        console.log(response.data);
+
+        if(response.data.success){
+            alert("글이 등록되었습니다");
+            
+        }else{
+            return alert(response.data.msg);
+        }
+    }
+    
+    const onchange = (e:any) => {
+       //const {name, value} = e.target;
+       setComment(e.target.value)
+    }
+
     return(
         <div>
             {loading ?<strong>loading...</strong>:
@@ -75,8 +98,8 @@ function Open(){
 
                <div className='comment'>
                     <h2>Comment</h2>
-                    <textarea className='comment'></textarea>
-                    <button className='c-btn'>등록</button>
+                    <textarea className='comment' name="comment" onChange={onchange}></textarea>
+                    <button className='c-btn' onClick={submitComment}>등록</button>
                 </div>
            </div>
             }
