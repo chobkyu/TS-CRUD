@@ -1,9 +1,11 @@
 import React from 'react';
+import {comment} from '../interface/comment';
 
-function Comment(){
+function Comment(prop:any){
     return(
-        <div>
-            <h1>fff</h1>
+        <div className="reple">
+            <span>{prop.data.userId}</span>
+            <input type='text' className='commentList' disabled value={prop.data.comment}/>
         </div>
     )
 }

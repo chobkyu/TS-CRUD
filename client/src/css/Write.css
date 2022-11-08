@@ -89,3 +89,12 @@ textarea.comment{ /*작성내용 작성 하는 공간*/
     border:0px;
     border-radius:10%;
 }
+
+.commentList{
+    position:absolute;
+    margin-left: 100px;
+}
+
+.reple{
+    margin-top: 10px;
+}

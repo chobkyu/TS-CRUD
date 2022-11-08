@@ -54,6 +54,10 @@ function Open(){
        
     },[])
 
+    useEffect(()=>{
+        
+    },comment)
+
     const onclick = () => {
         const id = window.sessionStorage.getItem('id');
         console.log("hi")
@@ -131,7 +135,13 @@ function Open(){
 
                
                 </div>
-                <Comment/> 
+                
+                {commentList.map((data:comment) => (
+                        <Comment
+                            
+                            data={data}
+                        />
+                    ))}
            </div>
             }
            
