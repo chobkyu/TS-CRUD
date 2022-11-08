@@ -4,7 +4,7 @@ import '../css/Table.css';
 function List(props:any){
     useEffect(()=>{
         
-        console.log("List : " +props.datas.length);
+        
     },[])
     
     return(
@@ -19,7 +19,7 @@ function List(props:any){
             
                 <tbody>
                     
-                    {props.datas.map((data:any) => (
+                    {props.datas&&props.datas.map((data:any) => (
                         <Table
                             data={data}
                         />
